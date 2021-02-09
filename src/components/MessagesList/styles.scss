@@ -1,0 +1,47 @@
+.messages_list{
+  padding: 2rem;
+  flex:1;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .message{
+    margin-bottom: 2rem;
+    text-align: right;
+
+    &-other{
+      text-align:left;
+    }
+
+    &_author{
+      margin-bottom: 0.5rem;
+      color:grey;
+    }
+
+    &_body{
+      padding:1rem;
+      border-radius: 10px;
+      color:white;
+      display: inline-block;
+      background-color: #8332AC;
+      position:relative;
+
+      .arrow-up {
+        position:absolute;
+        top:-5px;
+        right:15px;
+        width: 0; 
+        height: 0; 
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid #8332AC;
+
+        &-left {
+          left:15px;
+        }
+      }
+    }
+    
+  }
+}
+

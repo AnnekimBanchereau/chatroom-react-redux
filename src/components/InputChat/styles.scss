@@ -1,0 +1,22 @@
+.form{
+  display:flex;
+  border-top: solid 1px #F4ECD6;
+
+  &_input{
+    height: 4rem;
+    border:0;
+    flex:1;
+    padding: 0.5rem;
+  }
+
+  &_submit{
+    background-color: white;
+    border:0;
+    width: 3rem;
+    color:#8332AC;
+
+    :hover{
+      opacity: 0.5;
+    }
+  }
+}
