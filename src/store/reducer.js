@@ -1,10 +1,17 @@
 import {
   ADD_MESSAGE,
   CONTROL_INPUT,
+  TOGGLE_EMOJI_PICKER,
+  ADD_EMOJI,
 } from 'src/actions';
+
+import {
+  getHighestId,
+} from 'src/selectors';
 
 const initialState = {
   inputValue: '',
+  showEmojiPicker: false,
   messages: [{
     id: 1,
     author: 'Super Chat',
@@ -28,13 +35,15 @@ const initialState = {
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case ADD_MESSAGE:
-      event.preventDefault();
       return {
         inputValue: '',
         messages: [
           ...state.messages,
           {
-            id: 4, author: 'Super Chat', message: state.inputValue, isOther: false,
+            id: (getHighestId(state.messages) + 1),
+            author: 'Me',
+            message: state.inputValue,
+            isOther: false,
           },
         ],
       };
@@ -42,6 +51,16 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         inputValue: action.inputValue,
+      };
+    case TOGGLE_EMOJI_PICKER:
+      return {
+        ...state,
+        showEmojiPicker: (!state.showEmojiPicker),
+      };
+    case ADD_EMOJI:
+      return {
+        ...state,
+        inputValue: state.inputValue + action.emoji,
       };
     default:
       return state;

@@ -1,3 +1,14 @@
+@keyframes pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+   transform: scale(1);
+   opacity: 1;
+  }
+}
+
 .messages_list{
   padding: 2rem;
   flex:1;
@@ -8,10 +19,7 @@
   .message{
     margin-bottom: 2rem;
     text-align: right;
-
-    &-other{
-      text-align:left;
-    }
+    animation: pop 0.2s cubic-bezier(.48,1.7,.87,1);
 
     &_author{
       margin-bottom: 0.5rem;
@@ -19,9 +27,9 @@
     }
 
     &_body{
+      color:white;
       padding:1rem;
       border-radius: 10px;
-      color:white;
       display: inline-block;
       background-color: #8332AC;
       position:relative;
@@ -38,10 +46,17 @@
 
         &-left {
           left:15px;
+          border-bottom: 5px solid #ede8f0;
         }
       }
     }
-    
+
+    &-other{
+      text-align:left;
+      & .message_body {
+        background-color: #ede8f0;
+        color:black;
+      }
+    }
   }
 }
-

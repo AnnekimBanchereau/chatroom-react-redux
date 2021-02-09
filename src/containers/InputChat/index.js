@@ -4,18 +4,27 @@ import InputChat from 'src/components/InputChat';
 import {
   addMessage,
   controlInput,
+  toggleEmojiPicker,
+  addEmoji,
 } from 'src/actions';
 
 const mapStateToProps = (state) => ({
   inputValue: state.inputValue,
+  showEmojiPicker: state.showEmojiPicker,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  handleSubmit: () => {
+  sendMessage: () => {
     dispatch(addMessage());
   },
-  handleInputChange: () => {
+  handleInputChange: (event) => {
     dispatch(controlInput(event.target.value));
+  },
+  handleClickSmiley: () => {
+    dispatch(toggleEmojiPicker());
+  },
+  handleSelectEmoji: (emoji) => {
+    dispatch(addEmoji(emoji));
   },
 });
 
