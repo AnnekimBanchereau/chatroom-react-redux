@@ -1,6 +1,8 @@
+@import 'src/styles/vars';
+
 .form{
   display:flex;
-  border-top: solid 1px #F4ECD6;
+  border-top: solid 1px $light-beige;
 
   &_input{
     height: 4rem;
@@ -10,10 +12,10 @@
   }
 
   &_submit{
-    background-color: white;
+    background-color: $light-color;
     border:0;
     width: 3rem;
-    color:#8332AC;
+    color: $normal-purple;
 
     :hover{
       opacity: 0.5;
@@ -28,7 +30,7 @@
 }
 
 .toggle-emoji {
-  background-color: white;
+  background-color: $light-color;
   border: none;
   width: 50px;
   height: auto;

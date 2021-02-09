@@ -3,6 +3,9 @@ import {
   CONTROL_INPUT,
   TOGGLE_EMOJI_PICKER,
   ADD_EMOJI,
+  SHOW_SETTINGS,
+  CONTROL_PASSWORD_INPUT,
+  CONTROL_EMAIL_INPUT,
 } from 'src/actions';
 
 import {
@@ -12,6 +15,11 @@ import {
 const initialState = {
   inputValue: '',
   showEmojiPicker: false,
+  settingsOpened: false,
+  profil:{
+    email: '',
+    password: '',
+  },
   messages: [{
     id: 1,
     author: 'Super Chat',
@@ -61,6 +69,21 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         inputValue: state.inputValue + action.emoji,
+      };
+    case SHOW_SETTINGS:
+      return {
+        ...state,
+        settingsOpened: (!state.settingsOpened),
+      };
+    case CONTROL_PASSWORD_INPUT:
+      return {
+        ...state,
+        profil: { ...state.profil, password: action.password },
+      };
+    case CONTROL_EMAIL_INPUT:
+      return {
+        ...state,
+        profil: { ...state.profil, email: action.email },
       };
     default:
       return state;

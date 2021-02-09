@@ -55,15 +55,18 @@ const InputChat = ({
       </button>
     </form>
   );
-}
+};
 
 InputChat.propTypes = {
   inputValue: PropTypes.string.isRequired,
   handleInputChange: PropTypes.func.isRequired,
   sendMessage: PropTypes.func.isRequired,
   handleSelectEmoji: PropTypes.func.isRequired,
-  showEmojiPicker: PropTypes.bool.isRequired,
+  showEmojiPicker: PropTypes.bool,
   handleClickSmiley: PropTypes.func.isRequired,
 };
 
+InputChat.defaultProps = {
+  showEmojiPicker: false,
+};
 export default InputChat;

@@ -1,7 +1,7 @@
 @use 'reset';
-@use 'vars';
+@import 'src/styles/vars';
 
 body {
   font-family: sans-serif;
-  background-color: #F4ECD6;
+  background-color: $light-beige;
 }
