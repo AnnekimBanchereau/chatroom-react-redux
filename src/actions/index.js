@@ -2,7 +2,7 @@ export const ADD_MESSAGE = 'ADD_MESSAGE';
 export const CONTROL_INPUT = 'CONTROL_INPUT';
 export const TOGGLE_EMOJI_PICKER = 'TOGGLE_EMOJI_PICKER';
 export const ADD_EMOJI = 'ADD_EMOJI';
-export const SHOW_SETTINGS = 'SHOW_SETTINGS';
+export const TOGGLE_SETTINGS = 'TOGGLE_SETTINGS';
 export const CONTROL_PASSWORD_INPUT = 'CONTROL_PASSWORD_INPUT';
 export const CONTROL_EMAIL_INPUT = 'CONTROL_EMAIL_INPUT';
 
@@ -24,8 +24,8 @@ export const addEmoji = (emoji) => ({
   emoji,
 });
 
-export const showSettings = () => ({
-  type: SHOW_SETTINGS,
+export const toggleSettings = () => ({
+  type: TOGGLE_SETTINGS,
 });
 
 export const controlEmailInput = (email) => ({

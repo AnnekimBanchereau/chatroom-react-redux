@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Settings from 'src/components/Settings';
 
 import {
-  showSettings,
+  toggleSettings,
   controlEmailInput,
   controlPasswordInput,
 } from 'src/actions';
@@ -14,7 +14,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onClickSettings: () => {
-    dispatch(showSettings());
+    dispatch(toggleSettings());
   },
   handleEmailInputChange: (email) => {
     dispatch(controlEmailInput(email));

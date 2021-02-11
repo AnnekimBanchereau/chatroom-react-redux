@@ -3,7 +3,7 @@ import {
   CONTROL_INPUT,
   TOGGLE_EMOJI_PICKER,
   ADD_EMOJI,
-  SHOW_SETTINGS,
+  TOGGLE_SETTINGS,
   CONTROL_PASSWORD_INPUT,
   CONTROL_EMAIL_INPUT,
 } from 'src/actions';
@@ -13,10 +13,11 @@ import {
 } from 'src/selectors';
 
 const initialState = {
+  pseudo: 'Me',
   inputValue: '',
   showEmojiPicker: false,
   settingsOpened: false,
-  profil:{
+  profil: {
     email: '',
     password: '',
   },
@@ -24,19 +25,21 @@ const initialState = {
     id: 1,
     author: 'Super Chat',
     message: 'Salut ça va ?',
-    isOther: true,
   },
   {
     id: 2,
     author: 'Super Chat',
     message: 'T\'a pas des super croquettes ?',
-    isOther: true,
   },
   {
     id: 3,
     author: 'Super Chat',
     message: 'Stp !',
-    isOther: true,
+  },
+  {
+    id: 4,
+    author: 'Me',
+    message: 'Jamais',
   }],
 };
 
@@ -44,12 +47,13 @@ const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case ADD_MESSAGE:
       return {
+        ...state,
         inputValue: '',
         messages: [
           ...state.messages,
           {
             id: (getHighestId(state.messages) + 1),
-            author: 'Me',
+            author: state.pseudo,
             message: state.inputValue,
             isOther: false,
           },
@@ -63,17 +67,17 @@ const reducer = (state = initialState, action = {}) => {
     case TOGGLE_EMOJI_PICKER:
       return {
         ...state,
-        showEmojiPicker: (!state.showEmojiPicker),
+        showEmojiPicker: !state.showEmojiPicker,
       };
     case ADD_EMOJI:
       return {
         ...state,
         inputValue: state.inputValue + action.emoji,
       };
-    case SHOW_SETTINGS:
+    case TOGGLE_SETTINGS:
       return {
         ...state,
-        settingsOpened: (!state.settingsOpened),
+        settingsOpened: !state.settingsOpened,
       };
     case CONTROL_PASSWORD_INPUT:
       return {

@@ -35,7 +35,6 @@ const InputChat = ({
         />
       ) : null}
       <input
-        aria-describedby="name-desc"
         className="form_input"
         type="text"
         placeholder="Ecrivez un message"
