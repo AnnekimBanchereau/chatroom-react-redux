@@ -10,34 +10,41 @@ const Settings = ({
   handleEmailInputChange,
   handlePasswordInputChange,
   profil,
-}) => (
-  <div className={classNames('settings', { 'settings--active': settingsOpened })}>
-    <button className="settings_button" type="button" onClick={onClickSettings}>
-      +
-    </button>
-    <form className="settings_form">
-      <input
-        type="email"
-        placeholder="Email"
-        value={profil.email}
-        onChange={(evt) => {
-          const text = evt.target.value;
-          handleEmailInputChange(text);
-        }}
-      />
-      <input
-        type="password"
-        placeholder="Mot de passe"
-        value={profil.password}
-        onChange={(evt) => {
-          const text = evt.target.value;
-          handlePasswordInputChange(text);
-        }}
-      />
-      <button className="settings_form-submit" type="submit">Envoyer </button>
-    </form>
-  </div>
-);
+  onLogin,
+}) => {
+  const handleSubmitSettings = (event) => {
+    event.preventDefault();
+    onLogin();
+  };
+  return (
+    <div className={classNames('settings', { 'settings--active': settingsOpened })}>
+      <button className="settings_button" type="button" onClick={onClickSettings}>
+        +
+      </button>
+      <form className="settings_form" onSubmit={handleSubmitSettings}>
+        <input
+          type="email"
+          placeholder="Email"
+          value={profil.email}
+          onChange={(evt) => {
+            const text = evt.target.value;
+            handleEmailInputChange(text);
+          }}
+        />
+        <input
+          type="password"
+          placeholder="Mot de passe"
+          value={profil.password}
+          onChange={(evt) => {
+            const text = evt.target.value;
+            handlePasswordInputChange(text);
+          }}
+        />
+        <button className="settings_form-submit" type="submit">Envoyer </button>
+      </form>
+    </div>
+  );
+};
 
 Settings.propTypes = {
   profil: PropTypes.shape({
@@ -48,11 +55,13 @@ Settings.propTypes = {
   onClickSettings: PropTypes.func.isRequired,
   handleEmailInputChange: PropTypes.func.isRequired,
   handlePasswordInputChange: PropTypes.func.isRequired,
+  onLogin: PropTypes.func,
 };
 
 Settings.defaultProps = {
   settingsOpened: false,
   profil: {},
+  onLogin: () => { },
 };
 
 export default Settings;

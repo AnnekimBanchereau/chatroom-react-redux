@@ -6,6 +6,9 @@ import {
   TOGGLE_SETTINGS,
   CONTROL_PASSWORD_INPUT,
   CONTROL_EMAIL_INPUT,
+  SEND_LOGIN,
+  SET_PSEUDO,
+  SET_COLOR,
 } from 'src/actions';
 
 import {
@@ -55,7 +58,6 @@ const reducer = (state = initialState, action = {}) => {
             id: (getHighestId(state.messages) + 1),
             author: state.pseudo,
             message: state.inputValue,
-            isOther: false,
           },
         ],
       };
@@ -88,6 +90,29 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         profil: { ...state.profil, email: action.email },
+      };
+    case SEND_LOGIN:
+      return {
+        ...state,
+        settings: {
+          ...state.settings,
+          loading: true,
+        },
+      };
+    case SET_PSEUDO:
+      return {
+        ...state,
+        settings: {
+          ...state.settings,
+          loading: false,
+          open: false,
+        },
+        pseudo: action.pseudo,
+      };
+    case SET_COLOR:
+      return {
+        ...state,
+        color: action.color,
       };
     default:
       return state;

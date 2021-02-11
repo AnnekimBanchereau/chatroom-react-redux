@@ -5,6 +5,7 @@ import {
   toggleSettings,
   controlEmailInput,
   controlPasswordInput,
+  sendLogin,
 } from 'src/actions';
 
 const mapStateToProps = (state) => ({
@@ -22,6 +23,7 @@ const mapDispatchToProps = (dispatch) => ({
   handlePasswordInputChange: (password) => {
     dispatch(controlPasswordInput(password));
   },
+  onLogin: () => dispatch(sendLogin()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings);
