@@ -7,6 +7,17 @@
         <title>Modele</title>
     </head>
     <body>
-        <div id="root"></div>
+		<div id="root"></div>
+		<script src="http://localhost:3001/socket.io/socket.io.js"></script>
+		<!-- <script>
+			//création d'un tunnel de connexion
+			const socket = io('http://localhost:3001');
+			//écoute
+			socket.on('receive_message', (message)=>{
+				console.log("j'ai reçu un message");
+			})
+			//envoi message au serveur
+			socket.emit('send_message', {author: 'Toto', message:'Bonjour'});
+		</script> -->
     </body>
 </html>
