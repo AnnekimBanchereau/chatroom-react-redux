@@ -16,11 +16,11 @@ const Message = ({ author, message, isOther }) => (
 Message.propTypes = {
   author: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
-  isOther: PropTypes.bool.isRequired,
+  isOther: PropTypes.bool,
 };
 
-// Message.defaultProps = {
-//   isOther: false,
-// };
+Message.defaultProps = {
+  isOther: false,
+};
 
 export default Message;

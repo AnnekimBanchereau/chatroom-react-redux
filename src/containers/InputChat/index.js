@@ -3,6 +3,7 @@ import InputChat from 'src/components/InputChat';
 
 import {
   addMessage,
+  sendNewMessage,
   controlInput,
   toggleEmojiPicker,
   addEmoji,
@@ -15,7 +16,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   sendMessage: () => {
-    dispatch(addMessage());
+    dispatch(sendNewMessage());
   },
   handleInputChange: (event) => {
     dispatch(controlInput(event.target.value));

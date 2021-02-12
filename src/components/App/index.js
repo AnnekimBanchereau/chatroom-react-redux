@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import InputChat from 'src/containers/InputChat';
@@ -14,6 +14,7 @@ const App = () => {
   useEffect(() => {
     dispatch(wsConnect());
   }, []);
+
   return (
     <div className="app">
       <Settings />

@@ -55,9 +55,9 @@ const reducer = (state = initialState, action = {}) => {
         messages: [
           ...state.messages,
           {
-            id: (getHighestId(state.messages) + 1),
-            author: state.pseudo,
-            message: state.inputValue,
+            id: action.id,
+            author: action.author,
+            message: action.message,
           },
         ],
       };

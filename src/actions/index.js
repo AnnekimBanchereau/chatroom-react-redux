@@ -1,4 +1,5 @@
 export const ADD_MESSAGE = 'ADD_MESSAGE';
+export const SEND_NEW_MESSAGE = 'SEND_NEW_MESSAGE';
 export const CONTROL_INPUT = 'CONTROL_INPUT';
 export const TOGGLE_EMOJI_PICKER = 'TOGGLE_EMOJI_PICKER';
 export const ADD_EMOJI = 'ADD_EMOJI';
@@ -10,8 +11,11 @@ export const SET_PSEUDO = 'SET_PSEUDO';
 export const SET_COLOR = 'SET_COLOR';
 export const WS_CONNECT = 'WS_CONNECT';
 
-export const addMessage = () => ({
+export const addMessage = (id, author, message) => ({
   type: ADD_MESSAGE,
+  id,
+  author,
+  message,
 });
 
 export const controlInput = (inputValue) => ({
@@ -58,4 +62,8 @@ export const setColor = (color) => ({
 
 export const wsConnect = () => ({
   type: WS_CONNECT,
+});
+
+export const sendNewMessage = () => ({
+  type: SEND_NEW_MESSAGE,
 });
