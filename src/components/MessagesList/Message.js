@@ -5,7 +5,11 @@ import './styles.scss';
 
 const Message = ({ author, message, isOther }) => (
   <div className={classNames('message', { 'message-other': isOther })}>
-    <p className="message_author">{author}</p>
+    {
+      isOther
+        ? <p className="message_author">{ author } </p>
+        : <p className="message_author">Me</p>
+    }
     <div className="message_body">
       <div className={classNames('arrow-up', { 'arrow-up-left': isOther })} />
       <p>{message}</p>

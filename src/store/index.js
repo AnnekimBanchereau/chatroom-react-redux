@@ -1,5 +1,4 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import logMiddleware from 'src/middleware/log';
 import authMiddleware from 'src/middleware/auth';
 import socketMiddleware from 'src/middleware/socket';
 import reducer from './reducer';
@@ -10,7 +9,6 @@ const store = createStore(
   reducer,
   composeEnhancers(
     applyMiddleware(
-      logMiddleware,
       authMiddleware,
       socketMiddleware,
     ),

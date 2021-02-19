@@ -11,10 +11,6 @@ import {
   SET_COLOR,
 } from 'src/actions';
 
-import {
-  getHighestId,
-} from 'src/selectors';
-
 const initialState = {
   pseudo: 'Me',
   inputValue: '',
@@ -24,26 +20,7 @@ const initialState = {
     email: '',
     password: '',
   },
-  messages: [{
-    id: 1,
-    author: 'Super Chat',
-    message: 'Salut ça va ?',
-  },
-  {
-    id: 2,
-    author: 'Super Chat',
-    message: 'T\'a pas des super croquettes ?',
-  },
-  {
-    id: 3,
-    author: 'Super Chat',
-    message: 'Stp !',
-  },
-  {
-    id: 4,
-    author: 'Me',
-    message: 'Jamais',
-  }],
+  messages: [],
 };
 
 const reducer = (state = initialState, action = {}) => {

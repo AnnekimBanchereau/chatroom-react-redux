@@ -22,7 +22,6 @@ export default (store) => (next) => (action) => {
       });
       return next(action);
     case SEND_NEW_MESSAGE:
-      console.log('send new message', inputValue);
       socket.emit('send_message', { author: pseudo, message: inputValue });
       return next(action);
     default:

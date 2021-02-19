@@ -17,7 +17,6 @@ export default (store) => (next) => (action) => {
         password,
       }).then((result) => {
         store.dispatch(setPseudo(result.data.pseudo));
-        console.log('data', result.data.pseudo);
       });
       next(action);
       break;

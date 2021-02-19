@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import InputChat from 'src/components/InputChat';
 
 import {
-  addMessage,
   sendNewMessage,
   controlInput,
   toggleEmojiPicker,
